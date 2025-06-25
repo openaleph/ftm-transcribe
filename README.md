@@ -6,7 +6,7 @@
 
 Use [WhisperCPP](https://github.com/ggml-org/whisper.cpp) to transcribe audio and video files.
 
-Follow the instructions in the WhisperCPP [README](https://github.com/ggml-org/whisper.cpp/blob/master/README.md) to build thw binaries for your platform of choice.
+Follow the instructions in the WhisperCPP [README](https://github.com/ggml-org/whisper.cpp/blob/master/README.md) to build the binaries for your platform of choice.
 
 Create a `.env` file in the root of this project and specify the following paths:
 
