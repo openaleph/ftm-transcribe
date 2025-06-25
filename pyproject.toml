@@ -4,20 +4,13 @@ version = "0.1.0"
 description = ""
 authors = [{ name = "Alex Ștefănescu", email = "alex.stefanescu@pm.me" }]
 license = "AGPLv3+"
-classifiers = [
-    "Intended Audience :: Developers",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-]
 requires-python = ">=3.11,<4"
 dependencies = [
-    "openaleph-procrastinate @ git+https://github.com/openaleph/openaleph-procrastinate@develop",
     "anystore (>=0.3.4,<0.4.0)",
     "pydantic (>=2.11.4,<3.0.0)",
     "pydantic-settings (>=2.9.1,<3.0.0)",
+    "openaleph-procrastinate @ git+https://github.com/openaleph/openaleph-procrastinate@main",
+    "followthemoney (>=3.8.4,<4.0.0)",
 ]
 
 [build-system]
