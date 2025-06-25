@@ -1,4 +1,3 @@
-[![Python test and package](https://github.com/openaleph/ftm-transcribe/actions/workflows/python.yml/badge.svg)](https://github.com/openaleph/ftm-transcribe/actions/workflows/python.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![Coverage Status](https://coveralls.io/repos/github/openaleph/ftm-transcribe/badge.svg?branch=main)](https://coveralls.io/github/openaleph/ftm-transcribe?branch=main)
 
