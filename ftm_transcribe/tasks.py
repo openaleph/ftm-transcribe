@@ -20,7 +20,7 @@ app = make_app(__loader__.name)
 ORIGIN = "ftm-transcribe"
 
 
-@task(app=app, retry=defer.tasks.transcribe.retries)
+@task(app=app, retry=defer.tasks.transcribe.max_retries)
 def transcribe(job: DatasetJob) -> None:
     for entity_file_reference in job.get_file_references():
         entity: EntityProxy = entity_file_reference.entity
