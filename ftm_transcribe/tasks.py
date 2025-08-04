@@ -38,7 +38,7 @@ def transcribe(job: DatasetJob) -> None:
                 with job.get_writer() as bulk:
                     bulk.put(entity)
 
-                defer.analyze(job.dataset, [entity], **job.context)
+                defer.analyze(app, job.dataset, [entity], **job.context)
             except ProcessingException as e:
                 log.error(f"Transcription failed: {e}")
             finally:
