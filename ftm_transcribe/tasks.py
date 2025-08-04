@@ -4,7 +4,7 @@ import subprocess
 from pathlib import Path
 
 from openaleph_procrastinate.app import make_app
-from openaleph_procrastinate.model import DatasetJob, Defers
+from openaleph_procrastinate.model import DatasetJob
 from openaleph_procrastinate.tasks import task
 from openaleph_procrastinate import defer
 from followthemoney.proxy import EntityProxy
@@ -21,7 +21,7 @@ ORIGIN = "ftm-transcribe"
 
 
 @task(app=app)
-def transcribe(job: DatasetJob) -> Defers:
+def transcribe(job: DatasetJob) -> None:
     for entity_file_reference in job.get_file_references():
         entity: EntityProxy = entity_file_reference.entity
         audio_only_path = None
@@ -38,7 +38,7 @@ def transcribe(job: DatasetJob) -> Defers:
                 with job.get_writer() as bulk:
                     bulk.put(entity)
 
-                yield defer.analyze(job.dataset, [entity], **job.context)
+                defer.analyze(job.dataset, [entity], **job.context)
             except ProcessingException as e:
                 log.error(f"Transcription failed: {e}")
             finally:
