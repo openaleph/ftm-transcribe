@@ -47,6 +47,8 @@ def transcribe(job: DatasetJob) -> None:
 
 
 def get_audio_only_path(file_path: Path) -> Path:
+    Path(settings.data_root).mkdir(parents=True, exist_ok=True)
+
     import uuid
 
     tmp_filename = uuid.uuid4().hex
