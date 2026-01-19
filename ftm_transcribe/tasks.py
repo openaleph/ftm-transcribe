@@ -1,3 +1,4 @@
+import uuid
 import json
 import logging
 import subprocess
@@ -47,7 +48,10 @@ def transcribe(job: DatasetJob) -> None:
 
 
 def get_audio_only_path(file_path: Path) -> Path:
-    audio_only_path = Path(settings.data_root) / file_path.parts[-1].split(".")[0]
+    Path(settings.data_root).mkdir(parents=True, exist_ok=True)
+
+    tmp_filename = uuid.uuid4().hex
+    audio_only_path = Path(settings.data_root) / tmp_filename
     audio_only_path = audio_only_path.with_suffix(".wav")
 
     # https://github.com/ggml-org/whisper.cpp?tab=readme-ov-file#quick-start
