@@ -1,3 +1,4 @@
+import uuid
 import json
 import logging
 import subprocess
@@ -48,8 +49,6 @@ def transcribe(job: DatasetJob) -> None:
 
 def get_audio_only_path(file_path: Path) -> Path:
     Path(settings.data_root).mkdir(parents=True, exist_ok=True)
-
-    import uuid
 
     tmp_filename = uuid.uuid4().hex
     audio_only_path = Path(settings.data_root) / tmp_filename
