@@ -18,7 +18,7 @@ settings = Settings()
 log = logging.getLogger(__name__)
 app = make_app(__loader__.name)
 
-ORIGIN = "ftm-transcribe"
+ORIGIN = "transcribe"
 
 
 @task(app=app, retry=defer.tasks.transcribe.max_retries)
@@ -36,7 +36,7 @@ def transcribe(job: DatasetJob) -> None:
 
                 entity.add("bodyText", full_transcription)
 
-                with job.get_writer() as bulk:
+                with job.get_writer(origin=ORIGIN) as bulk:
                     bulk.put(entity)
 
                 defer.analyze(app, job.dataset, [entity], **job.context)
